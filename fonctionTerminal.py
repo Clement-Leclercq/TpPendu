@@ -21,15 +21,17 @@ def newTry(): #Cette fonction demande à l'utilisateur s'il veut rejouer et renv
     return valRen
 
 def checkInput(lettre): #Cette fonction vérifie que c'est bien une seule lettre qui a été rentrée
-    if (len(lettre) == 1 and lettre in "AZERTYUIOPQSDFGHJKLMWXCVBN"):
+    if (len(lettre) == 1 and lettre.upper() in "AZERTYUIOPQSDFGHJKLMWXCVBN"):
         return True
     else:
         return False
 
-def inputLetter(): #Cette fonction permet la saisie d'une lettre par l'utilisateur
-    lettre = "test"
-    while (not checkInput(lettre)):
-        lettre = input("Merci d'entrer une lettre:\n").upper()
+def inputLetter(listeLettre): #Cette fonction permet la saisie d'une lettre par l'utilisateur et vérifie qu'elle n'a pas déjà été utilisée
+    lettre = ""
+    while checkInput(lettre) == False or lettre in listeLettre:
+        print("La liste des lettres déjà utilisées:")
+        print(listeLettre)
+        lettre = input("Merci d'entrer une lettre (sans accent) et qui n'a pas encore été utilisée:\n").upper()
     return lettre
 
 def hiddenWord(mot): #Cette fonction permet de renvoyer le mot à deviner avec des _ sauf la première lettre qui est en claire (si d'autres lettres sont la même que la première elles sont aussi en claires)

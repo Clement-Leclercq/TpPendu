@@ -14,6 +14,7 @@ def startGame(): #Cette fonction lance simplement le jeu
     mot = randomElement(fileReading("word.txt"))
     motcache = hiddenWord(mot)
     vie = 8
+    listeLettre = []
     test = False
     while vie > 0 and test == False:
         print("Le mot que vous devez trouver est:")
@@ -21,7 +22,8 @@ def startGame(): #Cette fonction lance simplement le jeu
         print("Il est composé de "+str(len(mot))+" lettres.")
         print("Il vous reste "+str(vie)+" essais pour trouver le mot.")
         if motcache != mot:
-            lettre = inputLetter()
+            lettre = inputLetter(listeLettre)
+            listeLettre.append(lettre)
             if lettre not in mot:
                 vie -= 1
                 print("Dommage la lettre "+lettre+" n'est pas dans le mot !")

@@ -2,12 +2,14 @@
 
 #Header
 """
-Ce programme permet de manipuler des fichiers notamment d'en récupérer 
+Ce programme permet de manipuler des fichiers en récupérant des données
 Programme fait par Clément Leclercq
 Fait le 03/12/2020
-TO DO: fichier de test complet
+TO DO:
+    - fichier de test complet
+    - gestion du fichier des highscores
 """
-def fileReading(nomFichier): #Pas de description de la fonction car tout est dis dans le header
+def fileReading(nomFichier): #Permet d'ouvrir un fichier dans lequel on va prendre chaque ligne et retirer 
     fichier = open(nomFichier,'r')
     listeMot = fichier.readlines()
     for i,element in enumerate(listeMot):
