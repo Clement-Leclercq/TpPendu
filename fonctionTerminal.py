@@ -5,7 +5,7 @@
 Ce programme permet de prendre un élément aléatoirement dans une liste donnée
 Programme fait par Clément Leclercq
 Fait le 03/12/2020
-TO DO: fichier de test complet
+TO DO: ajouter de quoi faire les highscore
 """
 from random import randint #On importe le module qui nous permet de générer un nombre entier aléatoire
 
