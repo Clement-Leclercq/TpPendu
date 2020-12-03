@@ -2,12 +2,12 @@
 
 #Header
 """
-Ce programme permet de prendre les mots dans un fichier de les classer par longueur et par ordre alphabétique et de renvoyer la liste de mots classés
+Ce programme permet de manipuler des fichiers notamment d'en récupérer 
 Programme fait par Clément Leclercq
 Fait le 03/12/2020
 TO DO: fichier de test complet
 """
-def fileReading(nomFichier):
+def fileReading(nomFichier): #Pas de description de la fonction car tout est dis dans le header
     fichier = open(nomFichier,'r')
     listeMot = fichier.readlines()
     for i,element in enumerate(listeMot):
