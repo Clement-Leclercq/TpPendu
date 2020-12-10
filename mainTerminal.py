@@ -7,8 +7,20 @@ Programme fait par Clément Leclercq
 Fait le 03/12/2020
 TO DO: Rajouter les high scores
 """
-from fonctionTerminal import randomElement,hiddenWord,inputLetter,newTry,playerWord
+from fonctionUtile import randomElement,hiddenWord,inputLetter,newTry,playerWord
 from fichier import fileReading
+# randomElement nous renvoie un élément aléatoire d'une liste
+# hiddenWord permet d'écrire un mot en chiffré: test devient t__t
+# inputLetter permet de demander à l'utilisateur d'entrer une lettre
+# newTry permet d'avoir True si on répond Oui
+# playerWord permet de faire avancer le mot chiffré: si on devine le e dans test on aura te_t
+# fileReading permet de lire un fichier et chaque ligne devient un élément d'une liste qui nous est renvoyée
+
+
+
+
+
+
 
 def startGame(): #Cette fonction lance simplement le jeu
     mot = randomElement(fileReading("word.txt"))

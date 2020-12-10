@@ -2,7 +2,7 @@
 
 #Header
 """
-Ce programme permet de prendre un élément aléatoirement dans une liste donnée
+Ce programme regroupe toutes les fonctions que l'on peut utiliser dans les deux programmes
 Programme fait par Clément Leclercq
 Fait le 03/12/2020
 TO DO: ajouter de quoi faire les highscore
