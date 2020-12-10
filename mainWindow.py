@@ -12,13 +12,20 @@ from tkinter import Tk, Button, Label, StringVar, Entry, Canvas, PhotoImage, NW
 from tkinter import messagebox #permet la boite de dialogue
 #Importation des fonctions du module dont on a besoin
 from fichier import fileReading
-from fonctionUtile import randomElement,hiddenWord,newTry,playerWord,checkInput
+from fonctionUtile import randomElement,hiddenWord,playerWord,checkInput
 
-def motJoueur(lettre,mot,motcache):
+# randomElement nous renvoie un élément aléatoire d'une liste
+# hiddenWord permet d'écrire un mot en chiffré: test devient t__t
+# playerWord permet de faire avancer le mot chiffré: si on devine le e dans test on aura te_t
+# fileReading permet de lire un fichier et chaque ligne devient un élément d'une liste qui nous est renvoyée
+# checkInput permet de vérifier si on a bien une seul lettre sans cédille ni accent quand on lui donne quelque chose
+
+
+def motJoueur(lettre,mot,motcache): # Modifie le widget avec le mot chiffré en temps réel après un appuie sur le boutton valider
     global texte
     texte.set(playerWord(lettre,mot,motcache))
     
-def verification():
+def verification(): # Fonction qui vérifie que l'entrée est bonne et que vérifie si la lettre est dans le mot ou non et met à jour l'affichage
     global texte2
     global motcache
     global vie
@@ -43,22 +50,22 @@ def verification():
             texte2.set("Il vous reste 0 vies")
             newButton()
     else:
-        messagebox.showwarning("Erreur","Veuillez entrer une lettre et non pas un mot")
+        messagebox.showwarning("Erreur","Veuillez entrer uniquement une lettre (sans accent / caractère spécial)")
 
-def newButton():
+def newButton(): # Permet de remplacer le bouton VALIDER par un boutton pour Rejouer
     global boutonVerif
     boutonVerif.destroy()
     boutonVerif = Button(penduWindow,text = "Rejouer ?",command = jouer)
     boutonVerif.grid(row = 4, column = 1)
 
-def Ouvrir():
+def Ouvrir(): #Sert à afficher un gif dans le canevas
     global photos
     canevasPendu.delete()
     photo = PhotoImage(file = filename)
     photos.append(photo)
     canevasPendu.create_image(0,0,anchor = NW, image = photo)
 
-def jouer():
+def jouer(): #Permet d'ajouter les widgets avec leurs fonctionnalité dans la fenêtre
     global motcache
     global texte
     global texte2
@@ -123,7 +130,7 @@ def jouer():
 
 penduWindow = Tk()
 penduWindow.title("Jeu du pendu")
-penduWindow.geometry("600x300+0+0")
+penduWindow.geometry("700x300+200+100")
 """
 photos=[]
 mot = randomElement(fileReading("word.txt"))
